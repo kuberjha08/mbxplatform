@@ -1,54 +1,7 @@
 import React from 'react';
-import { Box, Typography, Grid, Button, IconButton } from '@mui/material';
+import { Box, Typography, Button } from '@mui/material';
+import translations from '../../global'; // adjust path if needed
 
-const images = [
-    { src: 'AlOlyaUp.svg', title: 'Al Olaya' },
-    { src: 'PlumeriaUp.svg', title: 'Plumeria' },
-    { src: 'AlOlyaDown.svg', title: 'Triangle Center' },
-    { src: 'PlumeriaDown.svg', title: 'Palm Residence' },
-];
-const CorneredImage = ({ src, title, width, height, top, left}) => (
-    <Box sx={{ position: 'relative', mb: 2 }}>
-        {/* Top-left */}
-        {/*<Box sx={{*/}
-        {/*    position: 'absolute', top: 0, left: 0,*/}
-        {/*    width: 12, height: 12, backgroundColor: '#B4C7DC',*/}
-        {/*}} />*/}
-
-        {/* Bottom-right */}
-        {/*<Box sx={{*/}
-        {/*    position: 'absolute', bottom: 0, right: 0,*/}
-        {/*    width: 12, height: 12, backgroundColor: '#B4C7DC',*/}
-        {/*}} />*/}
-
-        <Box
-            component="img"
-            src={src}
-            alt={title}
-            sx={{
-                width,
-                height,
-                objectFit: 'cover',
-                // borderRadius: 2,
-                display: 'block',
-            }}
-        />
-        <BlurSquareBox top={top} left={left} />
-
-
-        <Typography
-            sx={{
-                mt: 1,
-                color: '#4D8FC3',
-                fontWeight: 600,
-                fontSize: '0.95rem',
-                textAlign: 'left',
-            }}
-        >
-            {title}
-        </Typography>
-    </Box>
-);
 const BlurSquareBox = ({ size = 20, top, left, right, bottom }) => (
     <Box
         sx={{
@@ -66,28 +19,64 @@ const BlurSquareBox = ({ size = 20, top, left, right, bottom }) => (
     />
 );
 
-const OurProjectsSection = () => {
+const CorneredImage = ({ src, title, width, height, top, left }) => (
+    <Box sx={{ position: 'relative', mb: 2 }}>
+        <Box
+            component="img"
+            src={src}
+            alt={title}
+            sx={{
+                width,
+                height,
+                objectFit: 'cover',
+                display: 'block',
+            }}
+        />
+        <BlurSquareBox top={top} left={left} />
+        <Typography
+            sx={{
+                mt: 1,
+                color: '#4D8FC3',
+                fontWeight: 600,
+                fontSize: '0.95rem',
+                textAlign: 'left',
+            }}
+        >
+            {title}
+        </Typography>
+    </Box>
+);
+
+const OurProjectsSection = ({ lang = 'en' }) => {
+    const content = translations[lang].projects;
+
     return (
         <Box
             sx={{
                 display: 'flex',
                 flexDirection: { xs: 'column', md: 'row' },
                 alignItems: 'stretch',
-                // py: 10,
-                pt:30,
+                pt: 30,
                 px: { xs: 2, md: 10 },
                 background: 'linear-gradient(to right, #d5e2f0, #ffffff)',
             }}
         >
             {/* Left Column */}
-            <Box sx={{ flex: 1, pr: { md: 8 }, mb: { xs: 6, md: 0 }, position: 'relative',}}>
-                {/* Top Badge */}
-
-                {/* Text */}
+            <Box sx={{ flex: 1, pr: { md: 8 }, mb: { xs: 6, md: 0 }, position: 'relative' }}>
                 <Typography
-                    sx={{ fontWeight: 600, color: '#0F1B36', mb: 2, fontFamily: 'IBM Plex Serif', letterSpacing: 1, lineHeight: 1.2, fontSize: '2.3rem', pl: { xs: 0, md: 20}  }}
+                    sx={{
+                        fontWeight: 600,
+                        color: '#0F1B36',
+                        mb: 2,
+                        fontFamily: 'IBM Plex Serif',
+                        letterSpacing: 1,
+                        lineHeight: 1.2,
+                        fontSize: '2.3rem',
+                        pl: { xs: 0, md: 20 },
+                        whiteSpace: 'pre-line',
+                    }}
                 >
-                    Discover More <br /> About Our Projects
+                    {content.heading}
                 </Typography>
 
                 <Typography
@@ -98,12 +87,11 @@ const OurProjectsSection = () => {
                         mb: 3,
                         lineHeight: 1.6,
                         fontFamily: 'Vazirmatn',
-                        pl: { xs: 0, md: 20},
+                        pl: { xs: 0, md: 20 },
                         fontWeight: 300,
                     }}
                 >
-                    A forward-thinking developments that embody Saudi Vision 2030 — blending
-                    sustainability, innovation, and architectural excellence.
+                    {content.description}
                 </Typography>
 
                 <Button
@@ -141,13 +129,11 @@ const OurProjectsSection = () => {
                         fontFamily: 'Vazirmatn',
                     }}
                 >
-                    See more
+                    {content.cta}
                 </Button>
 
+                <br />
 
-                <br/>
-
-                {/* Large Tower SVG */}
                 <Box
                     component="img"
                     src="OmraniaPIFh.svg"
@@ -161,26 +147,56 @@ const OurProjectsSection = () => {
             </Box>
 
             {/* Right Column */}
-            <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+            <Box
+                sx={{
+                    flex: 1,
+                    display: { xs: 'none', md: 'flex' }, // hide on xs/sm, show on md and above
+                    justifyContent: 'center',
+                }}
+            >
                 <Box sx={{ position: 'relative', height: 600, width: '90%' }}>
-                    {/* Al Olaya (Top Left) */}
                     <Box sx={{ position: 'absolute', top: 0, left: 0 }}>
-                        <CorneredImage src="AlOlyaUp.svg" title="Al Olaya" width={250} height={300} top={-10} left={-10} />
+                        <CorneredImage
+                            src="AlOlyaUp.svg"
+                            title={content.items.alOlaya}
+                            width={250}
+                            height={300}
+                            top={-10}
+                            left={-10}
+                        />
                     </Box>
 
-                    {/* Plumeria (Top Right) */}
                     <Box sx={{ position: 'absolute', top: 100, right: 0 }}>
-                        <CorneredImage src="PlumeriaUp.svg" title="Plumeria" width={250} height={300} top={-10} left={210} />
+                        <CorneredImage
+                            src="PlumeriaUp.svg"
+                            title={content.items.plumeria}
+                            width={250}
+                            height={300}
+                            top={-10}
+                            left={210}
+                        />
                     </Box>
 
-                    {/* Triangle Center (Bottom Left - below Al Olaya) */}
                     <Box sx={{ position: 'absolute', bottom: -22, left: 0 }}>
-                        <CorneredImage src="AlOlyaDown.svg" title="" width={250} height={240} top={-10} left={240}/>
+                        <CorneredImage
+                            src="AlOlyaDown.svg"
+                            title={content.items.triangleCenter}
+                            width={250}
+                            height={240}
+                            top={-10}
+                            left={240}
+                        />
                     </Box>
 
-                    {/* Palm Residence (Bottom Right - below Plumeria, offset slightly upward) */}
                     <Box sx={{ position: 'absolute', bottom: -22, right: 0 }}>
-                        <CorneredImage src="PlumeriaDown.svg" title="" width={250} height={160} top={-10} left={-10}/>
+                        <CorneredImage
+                            src="PlumeriaDown.svg"
+                            title={content.items.palmResidence}
+                            width={250}
+                            height={160}
+                            top={-10}
+                            left={-10}
+                        />
                     </Box>
                 </Box>
             </Box>

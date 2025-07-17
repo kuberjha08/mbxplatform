@@ -31,7 +31,6 @@ const statsData = [
 const StatsSection = () => {
     return (
         <Box sx={{ backgroundColor: '#fff', py: 10, px: { xs: 2, md: 10 },borderTop:'1px solid #E5E5E5' }}>
-            {/* Heading */}
             <Typography
                 sx={{
                     fontWeight: 700,
@@ -41,21 +40,19 @@ const StatsSection = () => {
                     color: '#0F1B36',
                     ml:'5%',
                     fontFamily:'"IBM Plex Serif", sans-serif',
-                    fontSize: '2rem',
+                    fontSize: '1.6rem',
                     lineHeight: 1.2,
                 }}
             >
                 MXB Impact By Numbers
             </Typography>
 
-            {/* Subtext */}
             <Typography
                 sx={{
                     color: '#4E5D78',
                     textAlign: 'left',
                     mb: 6,
                     maxWidth: 750,
-                    // mx: 'auto',
                     fontSize: '1.4rem',
                     ml:'5%',
                     fontweight: 100,
@@ -65,11 +62,10 @@ const StatsSection = () => {
                 We believe in results you can measure — a reflection of our commitment to smart, sustainable investing across diverse markets.
             </Typography>
 
-            {/* Cards */}
             <Grid container spacing={4} justifyContent="center">
                 {statsData.map((item, index) => (
                     <Grid key={index} item xs={12} sm={6} md={3}>
-                        <Box sx={{ textAlign: 'center' }}>
+                        <Box sx={{ textAlign: 'flex-start', pl:0 }}>
                             {/* Image Box with Overlay Text */}
                             <Box
                                 sx={{
@@ -93,7 +89,7 @@ const StatsSection = () => {
                                         fontWeight: 200,
                                         textAlign: 'left',
                                         fontSize: '1.8rem',
-                                        whiteSpace: 'pre-line', // (optional)
+                                        whiteSpace: 'pre-line',
                                         fontfamily: 'Vazirmatn, sans-serif',
                                     }}
                                 >
@@ -106,33 +102,33 @@ const StatsSection = () => {
                                 </Typography>
                             </Box>
 
-                            {/* Number */}
-                            <Typography
-                                variant="h4"
-                                sx={{
-                                    fontWeight: 700,
-                                    color: '#4D8FC3',
-                                    mt: 4,
-                                    fontSize: '3rem',
-                                }}
-                            >
-                                {item.number}
-                                {<br/>}
+                            <Box sx={{ position: 'relative', mt: 4, textAlign: 'left' }}>
+                                <Typography
+                                    sx={{
+                                        fontWeight: 700,
+                                        color: '#4D8FC3',
+                                        fontSize: '100px',
+                                    }}
+                                >
+                                    {item.number}
+                                </Typography>
+
                                 {item.unit && (
                                     <Typography
-                                        // component="span"
                                         sx={{
                                             fontSize: '1rem',
                                             fontWeight: 400,
                                             color: '#4E5D78',
-                                            ml: 8,
-                                            alignItems: 'flex-end',
+                                            position: 'absolute',
+                                            bottom: 0,
+                                            right: item.number==='+3M'?70:20,
                                         }}
                                     >
                                         {item.unit}
                                     </Typography>
                                 )}
-                            </Typography>
+                            </Box>
+
                         </Box>
                     </Grid>
                 ))}
