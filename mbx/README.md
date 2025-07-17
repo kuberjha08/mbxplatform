@@ -1,70 +1,235 @@
-# Getting Started with Create React App
+# 💼 MBX Investment App (React.js)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the official MBX Investment frontend project.  
+This app is built to showcase real estate and investment plans using a clean, responsive UI — with multi-language support and scalable architecture.
 
-## Available Scripts
+> Made with ❤️ using React, Material UI, Redux, and React Router.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 📌 Table of Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [📦 Tech Stack](#-tech-stack)
+- [🛠️ Installation & Setup](#-installation--setup)
+- [🏃 Running the App](#-running-the-app)
+- [📁 Folder Structure](#-folder-structure)
+- [📦 Package Usage](#-package-usage)
+- [🔗 Deployment to Netlify](#-deployment-to-netlify)
+- [🧪 Testing](#-testing)
+- [🧠 FAQ](#-faq)
+- [🧰 Troubleshooting](#-troubleshooting)
+- [🙋 Author & License](#-author--license)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 📦 Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Package                      | Description                              |
+|-----------------------------|------------------------------------------|
+| `react`, `react-dom`        | Core framework for building the UI       |
+| `@mui/material`             | Modern UI components from Material UI    |
+| `@emotion/react`, `styled`  | Styling support for MUI                  |
+| `redux`, `react-redux`      | Centralized state management             |
+| `redux-thunk`               | Middleware for handling async logic      |
+| `react-router-dom`          | Routing between multiple pages/views     |
+| `@testing-library/*`        | Utilities for testing UI components      |
+| `web-vitals`                | Optional: measures web performance       |
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠️ Installation & Setup
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Clone the repository**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   git clone https://github.com/kuberjha08/mbxplatform.git
+   cd mbxplatform
+   ```
 
-### `npm run eject`
+2. **Install all dependencies**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```bash
+   npm install
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. **Start the development server**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```bash
+   npm start
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   🔗 App will be available at: [http://localhost:3000](http://localhost:3000)
 
-## Learn More
+4. **Build for production**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   ```bash
+   npm run build
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 📁 Folder Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```txt
+mbxplatform/
+├── public/                 # Static assets (images, fonts, etc.)
+├── src/
+│   ├── components/         # Reusable UI components
+│   ├── pages/              # Individual route-based pages
+│   ├── store/              # Redux store, actions, reducers
+│   │   └── languageActions.js
+│   ├── global.js           # Contains multilingual content
+│   ├── App.js              # Main route configuration
+│   └── index.js            # React app entry point
+├── package.json
+└── README.md
+```
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 📦 Package Usage
 
-### Making a Progressive Web App
+### ✅ React + React Router DOM
+Handles page navigation without full reloads.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```jsx
+import { Routes, Route } from 'react-router-dom';
 
-### Advanced Configuration
+<Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/about" element={<About />} />
+</Routes>
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+### ✅ Redux + Redux Thunk
+Used to manage global state like language, and handle async actions (e.g. API calls).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```js
+import { useSelector, useDispatch } from 'react-redux';
 
-### `npm run build` fails to minify
+const lang = useSelector(state => state.language.value);
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+### ✅ Material UI (MUI)
+Used for responsive layouts and clean components.
+
+```jsx
+import { Box, Typography, Button } from '@mui/material';
+
+<Box>
+  <Typography variant="h4">Hello</Typography>
+  <Button variant="contained">Click Me</Button>
+</Box>
+```
+
+---
+
+### ✅ Emotion
+Used with MUI to style components using plain CSS-in-JS.
+
+```jsx
+import styled from '@emotion/styled';
+
+const MyBox = styled.div`
+  background: lightgray;
+  padding: 20px;
+`;
+```
+
+---
+
+## 🔗 Deployment to Netlify
+
+To deploy the app on Netlify:
+
+1. **Build the production version**
+
+   ```bash
+   npm run build
+   ```
+
+2. **Login to Netlify → Create new site → Import from GitHub**
+
+   Git repo: `https://github.com/kuberjha08/mbxplatform.git`
+
+3. **Set build & publish settings**
+
+    - Build command: `npm run build`
+    - Publish directory: `build`
+
+4. **Hit "Deploy"**
+
+   ✅ That’s it — your app is live!
+
+---
+
+## 🧪 Testing
+
+To run tests (if implemented):
+
+```bash
+npm test
+```
+
+---
+
+## 🧠 FAQ
+
+#### ❓ How do I add a new page/route?
+
+1. Create a new component inside `pages/`, e.g., `Team.jsx`.
+2. Import and register it in `App.js` like:
+
+```jsx
+<Route path="/team" element={<Team />} />
+```
+
+---
+
+#### ❓ How do I change the language?
+
+The app uses Redux + `global.js` for multilingual support.
+
+```js
+dispatch(setLanguage('en'));  // or 'hi', 'ar', etc.
+```
+
+---
+
+#### ❓ What is `web-vitals`?
+
+It’s an optional package used to monitor performance (like LCP, CLS) for reporting.
+
+---
+
+#### ❓ Getting weird `node_modules` or `npm` errors?
+
+Try resetting everything:
+
+```bash
+rm -rf node_modules package-lock.json
+npm install
+```
+
+---
+
+## 🧰 Troubleshooting
+
+| Problem                        | Solution                                 |
+|-------------------------------|------------------------------------------|
+| `npm run build` fails         | Delete `node_modules` and reinstall      |
+| MUI styles not applying       | Check if `@emotion/react` is installed   |
+| Images not loading            | Double-check image paths in `/public/`   |
+
+---
+
+## 🙋 Author & License
+
+👨‍💻 Developed by **Kuber**  
+🔗 GitHub: [github.com/kuberjha08/mbxplatform](https://github.com/kuberjha08/mbxplatform)
+
+📜 Licensed under the [MIT License](https://opensource.org/licenses/MIT)
