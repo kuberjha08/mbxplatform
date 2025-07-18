@@ -21,12 +21,13 @@ const ChairmanMessage = () => {
         }}>
 
             <Box sx={{ marginBottom: '30px', textAlign: 'left' }}>
-                <Typography variant="h5" component="span" sx={{
+                <Typography component="span" sx={{
                     color: '#65748A',
                     display: 'block',
                     marginBottom: '8px',
-                    fontFamily: '"Vazirmatn", sans-serif',
+                    fontFamily: 'Vazirmatn',
                     letterSpacing: '2px',
+                    fontSize: '32px',
                 }}>
                     {msg.titleLine1}
                 </Typography>
@@ -37,7 +38,8 @@ const ChairmanMessage = () => {
                     display: 'block',
                     letterSpacing: '8px',
                     textIndent: '5px',
-                    pb: 5
+                    pb: 5,
+                    fontSize: '32px',
                 }}>
                     {msg.titleLine2}
                 </Typography>
@@ -69,15 +71,18 @@ const ChairmanMessage = () => {
                     color: '#65748A',
                     fontFamily: 'Vazirmatn, sans-serif',
                     fontWeight: 200,
+                    fontSize: '20px',
+
                 }}
                 dangerouslySetInnerHTML={{ __html: msg.quote }}
             />
 
-            <Typography variant="body1" sx={{
+            <Typography  sx={{
                 fontWeight: '500',
                 marginTop: '40px',
                 color: '#122239',
                 fontFamily: 'Vazirmatn, sans-serif',
+                fontSize: '20px',
             }}>
                 {msg.name}
             </Typography>
@@ -86,6 +91,8 @@ const ChairmanMessage = () => {
                 marginTop: '10px',
                 color: '#65748A',
                 fontFamily: 'Vazirmatn, sans-serif',
+                fontSize: '20px',
+
             }}>
                 {msg.designation}
             </Typography>

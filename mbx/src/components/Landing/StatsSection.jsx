@@ -74,7 +74,7 @@ const StatsSection = () => {
                                     backgroundImage: `url(${item.image})`,
                                     backgroundSize: 'cover',
                                     backgroundPosition: 'center',
-                                    borderRadius: 2,
+                                    // borderRadius: 2,
                                     display: 'flex',
                                     alignItems: 'flex-end',
                                     justifyContent: 'flex-start',
@@ -102,7 +102,7 @@ const StatsSection = () => {
                                 </Typography>
                             </Box>
 
-                            <Box sx={{ position: 'relative', mt: 4, textAlign: 'left' }}>
+                            <Box sx={{ position: 'relative', mt: 0, textAlign: 'left' }}>
                                 <Typography
                                     sx={{
                                         fontWeight: 700,
@@ -120,7 +120,7 @@ const StatsSection = () => {
                                             fontWeight: 400,
                                             color: '#4E5D78',
                                             position: 'absolute',
-                                            bottom: 0,
+                                            bottom: 1,
                                             right: item.number==='+3M'?70:20,
                                         }}
                                     >

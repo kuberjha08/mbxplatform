@@ -13,25 +13,21 @@ import {
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import translations from '../global';
-import {setLanguage} from "../store/actions/languageActions";
+import { setLanguage } from "../store/actions/languageActions";
 
 const Navbar = () => {
-    const [anchorEl, setAnchorEl] = useState(null);
     const [mobileMenuAnchorEl, setMobileMenuAnchorEl] = useState(null);
+    const [aboutAnchorEl, setAboutAnchorEl] = useState(null); // for About dropdown
+
     const { language } = useSelector(state => state.language);
     const dispatch = useDispatch();
     const langText = translations[language];
 
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('md')); // Adjust breakpoint as needed
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleClose = (lang) => {
-        setAnchorEl(null);
-        if (lang) dispatch(setLanguage(lang));
+    const handleLanguageToggle = () => {
+        dispatch(setLanguage(language === 'en' ? 'ar' : 'en'));
     };
 
     const handleMobileMenuOpen = (event) => {
@@ -42,13 +38,19 @@ const Navbar = () => {
         setMobileMenuAnchorEl(null);
     };
 
+    const handleAboutOpen = (event) => {
+        setAboutAnchorEl(event.currentTarget);
+    };
+
+    const handleAboutClose = () => {
+        setAboutAnchorEl(null);
+    };
+
     const navLinks = [
-        { path: "/", text: langText.landing },
         { path: "/investments", text: langText.investments },
         { path: "/real-estate", text: langText.realEstate },
-        { path: "/career", text: langText.career },
-        { path: "/contact", text: langText.contact },
-        { path: "/about", text: langText.about }
+        { path: "/career", text: langText.career }
+        // 'About' handled separately
     ];
 
     return (
@@ -58,19 +60,18 @@ const Navbar = () => {
             sx={{
                 backdropFilter: 'blur(2px)',
                 backgroundColor: 'rgba(36, 41, 52, 0.25)',
-                WebkitBackdropFilter: 'blur(30px)', // for Safari
+                WebkitBackdropFilter: 'blur(30px)',
                 boxShadow: 'none',
-                p: 1,
-                ph: 2
+                p: 1
             }}
         >
             <Toolbar sx={{ justifyContent: 'space-between' }}>
-                {/* Logo Left */}
+                {/* Logo */}
                 <Box component={Link} to="/">
                     <img src="/logoHome.svg" alt="logo" height="40" />
                 </Box>
 
-                {/* Nav + Language */}
+                {/* Desktop Menu */}
                 <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
                     {!isMobile ? (
                         <>
@@ -80,50 +81,85 @@ const Navbar = () => {
                                     component={Link}
                                     to={link.path}
                                     color="inherit"
+                                    sx={{ textTransform: 'none',fontSize:'20px' }} // no uppercase
                                 >
                                     {link.text}
                                 </Button>
                             ))}
 
-                            <Button onClick={handleClick} color="inherit">
-                                <img src="/language.svg" alt="lang" height="20" style={{ marginRight: 8 }} />
-                                {language.toUpperCase()}
+                            {/* About with Dropdown */}
+                            <Button
+                                color="inherit"
+                                sx={{ textTransform: 'none', display: 'flex', alignItems: 'center',fontSize:'20px' }}
+                                onClick={handleAboutOpen}
+                            >
+                                {langText.about}
+                                <img
+                                    src={aboutAnchorEl ? "Caret_Up_SM.svg" : "Caret_Down_SM.svg"}
+                                    alt="arrow"
+                                    height="16"
+                                    style={{ marginLeft: 6 }}
+                                />
                             </Button>
-
-                            <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={() => handleClose()}>
-                                <MenuItem onClick={() => handleClose('en')}>EN</MenuItem>
-                                <MenuItem onClick={() => handleClose('ar')}>AR</MenuItem>
+                            <Menu
+                                anchorEl={aboutAnchorEl}
+                                open={Boolean(aboutAnchorEl)}
+                                onClose={handleAboutClose}
+                            >
+                                <MenuItem
+                                    component={Link}
+                                    to="/about"
+                                    onClick={handleAboutClose}
+                                >
+                                    {langText.about}
+                                </MenuItem>
+                                <MenuItem
+                                    component={Link}
+                                    to="/contact"
+                                    onClick={handleAboutClose}
+                                >
+                                    {langText.contact}
+                                </MenuItem>
                             </Menu>
+
+
+                            {/* Language Toggle */}
+                            <Button
+                                onClick={handleLanguageToggle}
+                                color="inherit"
+                                sx={{ textTransform: 'none', ml:16,fontSize:'20px' }}
+                            >
+                                <img src="/language.svg" alt="lang" height="20" style={{ marginRight: 8 }} />
+                                {language === 'en' ? 'AR' : 'EN'}
+                            </Button>
                         </>
                     ) : (
                         <>
-                            <Button onClick={handleClick} color="inherit">
+                            <Button
+                                onClick={handleLanguageToggle}
+                                color="inherit"
+                                sx={{ textTransform: 'none' }}
+                            >
                                 <img src="/language.svg" alt="lang" height="20" style={{ marginRight: 8 }} />
-                                {language.toUpperCase()}
+                                {language === 'en' ? 'ar' : 'en'}
                             </Button>
 
                             <IconButton
                                 edge="end"
                                 color="inherit"
-                                aria-label="menu"
                                 onClick={handleMobileMenuOpen}
-                                sx={{ p: 0 }} // Optional: adjust padding as needed
+                                sx={{ p: 0 }}
                             >
-                                <img
-                                    src="Hamburger.svg" // Path to your SVG file
-                                    alt="menu"
-                                    height="24" // Adjust size as needed
-                                    width="24"  // Adjust size as needed
-                                />
+                                <img src="Hamburger.svg" alt="menu" height="24" width="24" />
                             </IconButton>
 
                             <Menu
                                 anchorEl={mobileMenuAnchorEl}
-                                anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-                                keepMounted
-                                transformOrigin={{ vertical: 'top', horizontal: 'right' }}
                                 open={Boolean(mobileMenuAnchorEl)}
                                 onClose={handleMobileMenuClose}
+                                anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+                                transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+                                keepMounted
                             >
                                 {navLinks.map((link) => (
                                     <MenuItem
@@ -135,6 +171,20 @@ const Navbar = () => {
                                         {link.text}
                                     </MenuItem>
                                 ))}
+                                <MenuItem
+                                    component={Link}
+                                    to="/about"
+                                    onClick={handleMobileMenuClose}
+                                >
+                                    {langText.about}
+                                </MenuItem>
+                                <MenuItem
+                                    component={Link}
+                                    to="/contact"
+                                    onClick={handleMobileMenuClose}
+                                >
+                                    {langText.contact}
+                                </MenuItem>
                             </Menu>
                         </>
                     )}

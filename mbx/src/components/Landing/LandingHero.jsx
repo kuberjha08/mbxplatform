@@ -23,14 +23,15 @@ const LandingHero = () => {
         >
             <Box sx={{ color: '#000', maxWidth: 400, zIndex: 2 }}>
                 <Typography
-                    variant="h3"
+                    // variant="h3"
                     sx={{
                         fontWeight: 700,
                         fontFamily: 'IBM Plex Serif',
                         color: '#193050',
-                        mb: 2,
+                        // mb: 2,
                         direction: 'ltr',
-
+                        letterSpacing: '0.5rem',
+                        fontSize:'2.9rem'
                     }}
                 >
                     {langText.creatingTitle || 'CREATING'}
@@ -53,7 +54,8 @@ const LandingHero = () => {
                             fontFamily: 'Vazirmatn, sans-serif',
                             color: '#fff',
                             direction: 'ltr',
-                            fontSize:'1.3rem'
+                            fontSize:'1.3rem',
+                            letterSpacing: '0.1rem',
                         }}
                     >
                         {langText.valueResponsibility || 'VALUE RESPONSIBILITY'}

@@ -31,7 +31,8 @@ const PartnersCarousel = () => {
                         letterSpacing: 1,
                         mb: 4,
                         fontSize: '1.2rem',
-                        ml:5
+                        ml:5,
+                        fontFamily:'Vazirmatn'
                     }}
                 >
                     Our Investment Partners

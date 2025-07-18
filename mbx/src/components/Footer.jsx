@@ -85,33 +85,92 @@ const Footer = () => {
                             component="img"
                             src="/logoHome.svg"
                             alt="Logo"
-                            sx={{ width: 120, mb: 2 }}
+                            sx={{ width: 280, mb: 2 }}
                         />
                     </Box>
 
                     {/* Site Links */}
-                    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-                        <Typography sx={{ fontWeight: 600, mb: 1, color:'#193050' }}>Site Links</Typography>
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'flex-start',
+                        }}
+                    >
+                        <Typography sx={{ fontWeight: 600, mb: 1, color: '#193050', fontSize: '20px' }}>
+                            Site Links
+                        </Typography>
+
                         <Stack spacing={1} sx={{ alignItems: 'flex-start' }}>
-                            <Button variant="text" sx={{ color: '#fff', textTransform: 'none', px: 0 }}>Home</Button>
-                            <Button variant="text" sx={{ color: '#fff', textTransform: 'none', px: 0 }}>Investments</Button>
-                            <Button variant="text" sx={{ color: '#fff', textTransform: 'none', px: 0 }}>Real Estate</Button>
-                            <Button variant="text" sx={{ color: '#fff', textTransform: 'none', px: 0 }}>About Us</Button>
+                            <Button
+                                variant="text"
+                                sx={{
+                                    color: '#fff',
+                                    textTransform: 'none',
+                                    px: 0,
+                                    minWidth: 'unset',       // prevent full width
+                                    justifyContent: 'flex-start', // align text to left
+                                    fontSize: '20px'
+
+                                }}
+                            >
+                                Home
+                            </Button>
+                            <Button
+                                variant="text"
+                                sx={{
+                                    color: '#fff',
+                                    textTransform: 'none',
+                                    px: 0,
+                                    minWidth: 'unset',
+                                    justifyContent: 'flex-start',
+                                    fontSize: '20px'
+                                }}
+                            >
+                                Investments
+                            </Button>
+                            <Button
+                                variant="text"
+                                sx={{
+                                    color: '#fff',
+                                    textTransform: 'none',
+                                    px: 0,
+                                    minWidth: 'unset',
+                                    justifyContent: 'flex-start',
+                                    fontSize: '20px'
+                                }}
+                            >
+                                Real Estate
+                            </Button>
+                            <Button
+                                variant="text"
+                                sx={{
+                                    color: '#fff',
+                                    textTransform: 'none',
+                                    px: 0,
+                                    minWidth: 'unset',
+                                    justifyContent: 'flex-start',
+                                    fontSize: '20px'
+                                }}
+                            >
+                                About Us
+                            </Button>
                         </Stack>
                     </Box>
 
+
                     {/* Policy & Legal */}
                     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-                        <Typography sx={{ fontWeight: 600, mb: 1, color:'#193050'}}>Policy & Legal</Typography>
+                        <Typography sx={{ fontWeight: 600, mb: 1, color:'#193050',fontSize: '20px'}}>Policy & Legal</Typography>
                         <Stack spacing={1} sx={{ alignItems: 'flex-start' }}>
-                            <Button variant="text" sx={{ color: '#fff', textTransform: 'none', px: 0 }}>Privacy Policy</Button>
-                            <Button variant="text" sx={{ color: '#fff', textTransform: 'none', px: 0 }}>Terms & Conditions</Button>
+                            <Button variant="text" sx={{ color: '#fff', textTransform: 'none', px: 0, fontSize: '20px'}}>Privacy Policy</Button>
+                            <Button variant="text" sx={{ color: '#fff', textTransform: 'none', px: 0, fontSize: '20px' }}>Terms & Conditions</Button>
                         </Stack>
                     </Box>
 
                     {/* Get in Touch - Social Icons */}
                     <Box>
-                        <Typography sx={{ fontWeight: 600, mb: 1, color: '#193050' }}>Get in Touch</Typography>
+                        <Typography sx={{ fontWeight: 600, mb: 1, color: '#193050',fontSize: '20px' }}>Get in Touch</Typography>
                         <Stack direction="row" spacing={2}>
                             <a
                                 href="https://www.linkedin.com/in/kuberjha/" // Replace with actual link
@@ -158,7 +217,7 @@ const Footer = () => {
 
                 {/* Divider and Copyright */}
                 <Divider sx={{ backgroundColor: 'rgba(255,255,255,0.3)', mb: 1 }} />
-                <Typography sx={{ color: '#ccc', fontSize: '12px', fontFamily: 'Arial, sans-serif', textAlign: 'center' }}>
+                <Typography sx={{ color: '#ccc', fontSize: '18px', fontFamily: 'Arial, sans-serif', textAlign: 'center' }}>
                     Copyright © 2025 MXB | All Rights Reserved
                 </Typography>
             </Box>

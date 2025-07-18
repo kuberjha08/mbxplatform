@@ -49,7 +49,7 @@ const translations = {
             titleLine1: "Message from the",
             titleLine2: "Chairman",
             quote: `Our goal is to create <b>long-term value</b> for our shareholders by making <b>sustainable investments</b> in diverse asset classes while adhering to <b>Islamic principles</b>. We believe that our success is not only measured by financial gains but also by the positive impact we make on the communities we operate in. At MXB, we are committed to creating <b>a better future</b> for all stakeholders and contributing to the growth and development of our people, communities, and nation.`,
-            name: "Mrs. Nade Mohammed Aloubaeel",
+            name: "Mrs. Nada Mohammed Alsubeaei,",
             designation: "Chairman, MXB Investment Company"
         },
         projects: {
