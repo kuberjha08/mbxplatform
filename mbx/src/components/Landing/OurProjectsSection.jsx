@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography, Button } from '@mui/material';
-import translations from '../../global'; // adjust path if needed
+import { useSelector } from 'react-redux';
+import translations from '../../global';
 
 const BlurSquareBox = ({ size = 20, top, left, right, bottom }) => (
     <Box
@@ -47,8 +48,9 @@ const CorneredImage = ({ src, title, width, height, top, left }) => (
     </Box>
 );
 
-const OurProjectsSection = ({ lang = 'en' }) => {
-    const content = translations[lang].projects;
+const OurProjectsSection = () => {
+    const { language } = useSelector(state => state.language);
+    const content = translations[language].projects;
 
     return (
         <Box
@@ -132,8 +134,6 @@ const OurProjectsSection = ({ lang = 'en' }) => {
                     {content.cta}
                 </Button>
 
-                <br />
-
                 <Box
                     component="img"
                     src="OmraniaPIFh.svg"
@@ -141,7 +141,7 @@ const OurProjectsSection = ({ lang = 'en' }) => {
                     sx={{
                         width: '100%',
                         maxWidth: 350,
-                        mt: 1,
+                        mt: 12,
                     }}
                 />
             </Box>
@@ -150,12 +150,12 @@ const OurProjectsSection = ({ lang = 'en' }) => {
             <Box
                 sx={{
                     flex: 1,
-                    display: { xs: 'none', md: 'flex' }, // hide on xs/sm, show on md and above
+                    display: { xs: 'none', md: 'flex' },
                     justifyContent: 'center',
                 }}
             >
                 <Box sx={{ position: 'relative', height: 600, width: '90%' }}>
-                    <Box sx={{ position: 'absolute', top: 0, left: 0 }}>
+                    <Box sx={{ position: 'absolute', top: -50, left: -10 }}>
                         <CorneredImage
                             src="AlOlyaUp.svg"
                             title={content.items.alOlaya}
@@ -166,7 +166,7 @@ const OurProjectsSection = ({ lang = 'en' }) => {
                         />
                     </Box>
 
-                    <Box sx={{ position: 'absolute', top: 100, right: 0 }}>
+                    <Box sx={{ position: 'absolute', top: 20, right: -10 }}>
                         <CorneredImage
                             src="PlumeriaUp.svg"
                             title={content.items.plumeria}
@@ -177,7 +177,7 @@ const OurProjectsSection = ({ lang = 'en' }) => {
                         />
                     </Box>
 
-                    <Box sx={{ position: 'absolute', bottom: -22, left: 0 }}>
+                    <Box sx={{ position: 'absolute', bottom: -22, left: -10  }}>
                         <CorneredImage
                             src="AlOlyaDown.svg"
                             title={content.items.triangleCenter}
@@ -188,7 +188,7 @@ const OurProjectsSection = ({ lang = 'en' }) => {
                         />
                     </Box>
 
-                    <Box sx={{ position: 'absolute', bottom: -22, right: 0 }}>
+                    <Box sx={{ position: 'absolute', bottom: -22, right: -10 }}>
                         <CorneredImage
                             src="PlumeriaDown.svg"
                             title={content.items.palmResidence}
@@ -205,3 +205,13 @@ const OurProjectsSection = ({ lang = 'en' }) => {
 };
 
 export default OurProjectsSection;
+
+
+
+
+
+
+
+
+
+

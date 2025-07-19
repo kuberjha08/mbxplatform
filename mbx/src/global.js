@@ -3,13 +3,41 @@ const translations = {
         landing: "Landing",
         creatingTitle: "CREATING",
         valueResponsibility: "VALUE RESPONSIBILITY",
-        investingWith: "INVESTING\nWITH",
+        investingWith: "INVESTING",
+        with: "WITH",
+        integrity: "INTEGRITY",
         investments: "Investments",
         realEstate: "Real Estate",
         career: "Career",
         contact: "Contact",
         about: "About",
+        aboutCompany: "About Company",
         language: "Language",
+        partners: {
+            title: "Our Investment Partners"
+        },
+        statsSection: {
+            heading: "MXB Impact By Numbers",
+            description:
+                "We believe in results you can measure — a reflection of our commitment to smart, sustainable investing across diverse markets.",
+            cards: [
+                "Investing in\nequities and\nfunds.",
+                "Area of\nreal estate\nprojects.",
+                "Area of\ninfrastructure\nprojects.",
+                "Real estate &\ninfrastructure\nprojects.",
+            ]
+        },
+        projects: {
+            heading: 'Our Projects\nAcross Regions',
+            description: 'We design and execute landmark real estate and infrastructure projects, blending innovation with tradition.',
+            cta: 'View all projects',
+            items: {
+                alOlaya: 'Al Olaya Residential Tower',
+                plumeria: 'Plumeria Business Complex',
+                triangleCenter: 'Triangle Center',
+                palmResidence: 'Palm Residence',
+            },
+        },
 
         whatSetsUsApart: "What Sets Us Apart",
         whatSetsUsApartSubtext: "Committed to building purposeful infrastructure.",
@@ -52,31 +80,60 @@ const translations = {
             name: "Mrs. Nada Mohammed Alsubeaei,",
             designation: "Chairman, MXB Investment Company"
         },
-        projects: {
-            heading: "Discover More\nAbout Our Projects",
-            description:
-                "A forward-thinking developments that embody Saudi Vision 2030 — blending sustainability, innovation, and architectural excellence.",
-            cta: "See more",
-            items: {
-                alOlaya: "Al Olaya",
-                plumeria: "Plumeria",
-                triangleCenter: "Triangle Center",
-                palmResidence: "Palm Residence",
-            },
-        },
+        footer: {
+            siteLinks: "Site Links",
+            home: "Home",
+            investments: "Investments",
+            realEstate: "Real Estate",
+            aboutUs: "About Us",
+            policyLegal: "Policy & Legal",
+            privacyPolicy: "Privacy Policy",
+            terms: "Terms & Conditions",
+            getInTouch: "Get in Touch",
+            copyright: "Copyright © 2025 MXB | All Rights Reserved"
+        }
     },
 
     ar: {
         landing: "الصفحة الرئيسية",
         creatingTitle: "إنشاء",
         valueResponsibility: "قيمة المسؤولية",
-        investingWith: "استثمار",
+        investingWith: "الاستثمار",
+        with: "مع",
+        integrity: "نزاهة",
         investments: "الاستثمارات",
         realEstate: "العقارات",
         career: "المهنة",
         contact: "اتصل",
         about: "حول",
+        aboutCompany: "عن الشركة",
         language: "اللغة",
+        partners: {
+            title: "شركاؤنا في الاستثمار"
+        },
+        footer: {
+            siteLinks: "روابط الموقع",
+            home: "الصفحة الرئيسية",
+            investments: "الاستثمارات",
+            realEstate: "العقارات",
+            aboutUs: "معلومات عنا",
+            policyLegal: "السياسات والشروط",
+            privacyPolicy: "سياسة الخصوصية",
+            terms: "الشروط والأحكام",
+            getInTouch: "ابقى على تواصل",
+            copyright: "حقوق النشر © 2025 MXB | جميع الحقوق محفوظة"
+        },
+        statsSection: {
+            heading: "تأثير MXB بالأرقام",
+            description:
+                "نؤمن بالنتائج التي يمكن قياسها — تعبيرًا عن التزامنا بالاستثمار الذكي والمستدام عبر أسواق متنوعة.",
+            cards: [
+                "الاستثمار في\nالأسهم و\nالصناديق.",
+                "مساحة\nمشاريع العقارات.",
+                "مساحة\nمشاريع البنية التحتية.",
+                "مشاريع عقارية و\nبنية تحتية.",
+            ]
+        },
 
         whatSetsUsApart: "ما يميزنا",
         whatSetsUsApartSubtext: "ملتزمون ببناء بنية تحتية هادفة.",
@@ -120,15 +177,14 @@ const translations = {
             designation: "رئيس مجلس إدارة شركة MXB للاستثمار"
         },
         projects: {
-            heading: "اكتشف المزيد\nعن مشاريعنا",
-            description:
-                "تطويرات مستقبلية تجسد رؤية السعودية 2030 — تجمع بين الاستدامة، والابتكار، وروعة التصميم المعماري.",
-            cta: "المزيد",
+            heading: 'مشاريعنا\nفي مختلف المناطق',
+            description: 'نقوم بتصميم وتنفيذ مشاريع بارزة في العقارات والبنية التحتية، نمزج فيها بين الابتكار والتقاليد.',
+            cta: 'عرض جميع المشاريع',
             items: {
-                alOlaya: "العليا",
-                plumeria: "بلوميريا",
-                triangleCenter: "مركز المثلث",
-                palmResidence: "ريزيدنس النخلة",
+                alOlaya: 'برج العليا السكني',
+                plumeria: 'مجمع بلوميريا التجاري',
+                triangleCenter: 'مركز المثلث',
+                palmResidence: 'سكن بالم',
             },
         },
     }

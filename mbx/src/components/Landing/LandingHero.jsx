@@ -85,7 +85,7 @@ const LandingHero = () => {
                                     fontSize: '1.3rem',
                                 }}
                             >
-                                INVESTING
+                                {langText.investingWith || "INVESTING"}
                             </Typography>
                             <Typography
                                 variant="h6"
@@ -98,7 +98,7 @@ const LandingHero = () => {
                                     mt:1
                                 }}
                             >
-                                WITH
+                                {langText.with || "WITH"}
                             </Typography>
                         </Box>
 
@@ -115,7 +115,7 @@ const LandingHero = () => {
                                 ml:-7
                             }}
                         >
-                            INTEGRITY
+                            {langText.integrity || "INTEGRITY"}
                         </Typography>
                     </Box>
                 </Box>

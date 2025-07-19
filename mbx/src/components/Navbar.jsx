@@ -111,7 +111,7 @@ const Navbar = () => {
                                     to="/about"
                                     onClick={handleAboutClose}
                                 >
-                                    {langText.about}
+                                    {langText.aboutCompany}
                                 </MenuItem>
                                 <MenuItem
                                     component={Link}
@@ -176,7 +176,7 @@ const Navbar = () => {
                                     to="/about"
                                     onClick={handleMobileMenuClose}
                                 >
-                                    {langText.about}
+                                    {langText.aboutCompany}
                                 </MenuItem>
                                 <MenuItem
                                     component={Link}
